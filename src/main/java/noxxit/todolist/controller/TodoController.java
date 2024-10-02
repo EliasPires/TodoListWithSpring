@@ -2,6 +2,7 @@ package noxxit.todolist.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import noxxit.todolist.service.TodoService;
 
 @RestController
 @RequestMapping("/todos")
+@CrossOrigin(origins = "*")
 public class TodoController {
     private TodoService todoService;
 
@@ -26,8 +28,8 @@ public class TodoController {
         this.todoService = todoService;
     }
 
-    @PostMapping
-    List<Todo> create(@RequestBody @Valid Todo todo) {
+    @PostMapping("/create")
+    List<Todo> create( @Valid Todo todo) {
         return todoService.create(todo);
     }
 
