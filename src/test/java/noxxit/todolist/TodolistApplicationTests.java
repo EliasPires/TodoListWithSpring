@@ -45,4 +45,9 @@ class TodolistApplicationTests {
 
 	}
 
+	@Test
+	void testUpdateTodoSuccess() {
+		
+	}
+
 }
